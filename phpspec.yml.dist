@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Setono\GlsWebserviceBundle
+        psr4_prefix: Setono\GlsWebserviceBundle
