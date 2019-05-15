@@ -13,8 +13,7 @@
         "setono/gls-webservice-php-sdk": "^1.0.1",
         "symfony/config": "^4.0",
         "symfony/dependency-injection": "^4.0",
-        "symfony/framework-bundle": "^4.0",
-        "symfony/http-foundation": "^4.0"
+        "symfony/framework-bundle": "^4.0"
     },
     "require-dev": {
         "localheinz/composer-normalize": "^1.1",

@@ -4,16 +4,25 @@ dist: trusty
 
 sudo: false
 
-php:
-    - '7.2'
-    - '7.3'
-
 cache:
     directories:
-        - ~/.composer/cache/files
+        - ~/.composer/cache
+
+matrix:
+    fast_finish: true
+    include:
+        -   php: '7.1'
+        -   php: '7.1'
+            env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
+        -   php: '7.2'
+        -   php: '7.2'
+            env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
+        -   php: '7.3'
+        -   php: '7.3'
+            env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 install:
-    - composer install --no-interaction --prefer-dist
+    - composer update --no-interaction --prefer-dist ${COMPOSER_FLAGS}
 
 script:
     - composer validate --strict
