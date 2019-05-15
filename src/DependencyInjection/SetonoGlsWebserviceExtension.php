@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class SetonoTagBagExtension extends Extension
+final class SetonoGlsWebserviceExtension extends Extension
 {
     /**
      * {@inheritdoc}
