@@ -7,9 +7,13 @@
             <argument>%setono_gls_webservice.wsdl%</argument>
         </service>
 
+        <service id="setono_gls_webservice.soap_client" class="\SoapClient">
+            <factory service="setono_gls_webservice.factory.soap_client" method="create"/>
+        </service>
+
         <service id="Setono\GLS\Webservice\Client\ClientInterface" alias="setono_gls_webservice.client"/>
         <service id="setono_gls_webservice.client" class="Setono\GLS\Webservice\Client\Client">
-            <factory service="setono_gls_webservice.factory.soap_client" method="create"/>
+            <argument type="service" id="setono_gls_webservice.soap_client"/>
         </service>
     </services>
 </container>
