@@ -16,7 +16,7 @@
         "symfony/framework-bundle": "^4.0"
     },
     "require-dev": {
-        "localheinz/composer-normalize": "^1.1",
+        "localheinz/composer-normalize": "^2.2",
         "matthiasnoback/symfony-config-test": "^4.0",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "phpstan/phpstan": "^0.10.3",
