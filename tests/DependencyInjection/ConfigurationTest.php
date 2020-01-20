@@ -27,6 +27,7 @@ final class ConfigurationTest extends TestCase
             ['wsdl' => 'test wsdl2'],
         ], [
             'wsdl' => 'test wsdl2',
+            'connection_timeout' => 0,
         ]);
     }
 }
