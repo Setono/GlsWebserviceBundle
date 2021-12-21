@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": ">=7.2",
         "setono/gls-webservice-php-sdk": "^1.0.3",
         "symfony/config": "^4.0 || ^5.0",
         "symfony/dependency-injection": "^4.0 || ^5.0",
