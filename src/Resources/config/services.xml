@@ -7,7 +7,7 @@
             <argument>%setono_gls_webservice.wsdl%</argument>
         </service>
 
-        <service id="setono_gls_webservice.soap_client" class="\SoapClient">
+        <service id="setono_gls_webservice.soap_client" class="\SoapClient" lazy="true">
             <factory service="setono_gls_webservice.factory.soap_client" method="create"/>
             <argument>%setono_gls_webservice.options%</argument>
         </service>
