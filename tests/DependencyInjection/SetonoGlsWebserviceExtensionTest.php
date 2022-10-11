@@ -14,13 +14,6 @@ final class SetonoGlsWebserviceExtensionTest extends AbstractExtensionTestCase
         return [new SetonoGlsWebserviceExtension()];
     }
 
-    protected function getMinimalConfiguration(): array
-    {
-        return [
-            'connection_timeout' => 15,
-        ];
-    }
-
     /**
      * @test
      */
@@ -29,6 +22,6 @@ final class SetonoGlsWebserviceExtensionTest extends AbstractExtensionTestCase
         $this->load();
 
         $this->assertContainerBuilderHasParameter('setono_gls_webservice.wsdl', 'https://www.gls.dk/webservices_v4/wsShopFinder.asmx?WSDL');
-        $this->assertContainerBuilderHasParameter('setono_gls_webservice.options', ['connection_timeout' => 15]);
+        $this->assertContainerBuilderHasParameter('setono_gls_webservice.options', ['connection_timeout' => 5]);
     }
 }
