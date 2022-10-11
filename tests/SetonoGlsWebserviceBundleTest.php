@@ -10,7 +10,6 @@ use Setono\GLS\Webservice\Client\ClientInterface;
 use Setono\GLS\Webservice\Factory\SoapClientFactory;
 use Setono\GLS\Webservice\Factory\SoapClientFactoryInterface;
 use Setono\GlsWebserviceBundle\SetonoGlsWebserviceBundle;
-use SoapClient;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -63,7 +62,6 @@ final class SetonoGlsWebserviceBundleTest extends KernelTestCase
         $services = [
             ['id' => SoapClientFactoryInterface::class, 'class' => SoapClientFactory::class],
             ['id' => 'setono_gls_webservice.factory.soap_client', 'class' => SoapClientFactory::class],
-            ['id' => 'setono_gls_webservice.soap_client', 'class' => SoapClient::class],
             ['id' => ClientInterface::class, 'class' => Client::class],
             ['id' => 'setono_gls_webservice.client', 'class' => Client::class],
         ];
