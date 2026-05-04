@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Setono\GlsWebserviceBundle\DependencyInjection;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Setono\GlsWebserviceBundle\DependencyInjection\SetonoGlsWebserviceExtension;
 
 final class SetonoGlsWebserviceExtensionTest extends AbstractExtensionTestCase
@@ -14,9 +15,7 @@ final class SetonoGlsWebserviceExtensionTest extends AbstractExtensionTestCase
         return [new SetonoGlsWebserviceExtension()];
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function after_loading_the_correct_parameter_has_been_set(): void
     {
         $this->load();

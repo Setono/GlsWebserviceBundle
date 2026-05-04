@@ -14,7 +14,6 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('setono_gls_webservice');
         $rootNode = $treeBuilder->getRootNode();
 
-        /** @psalm-suppress MixedMethodCall,PossiblyNullReference,PossiblyUndefinedMethod */
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()

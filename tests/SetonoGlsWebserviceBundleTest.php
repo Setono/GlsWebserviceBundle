@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Setono\GlsWebserviceBundle;
 
 use Nyholm\BundleTest\TestKernel;
+use PHPUnit\Framework\Attributes\Test;
 use Setono\GLS\Webservice\Client\Client;
 use Setono\GLS\Webservice\Client\ClientInterface;
 use Setono\GLS\Webservice\Factory\SoapClientFactory;
@@ -34,13 +35,13 @@ final class SetonoGlsWebserviceBundleTest extends KernelTestCase
                 $regex = '|setono.*|';
 
                 foreach ($container->getDefinitions() as $id => $definition) {
-                    if (preg_match($regex, $id)) {
+                    if (preg_match($regex, $id) === 1) {
                         $definition->setPublic(true);
                     }
                 }
 
                 foreach ($container->getAliases() as $id => $alias) {
-                    if (preg_match($regex, $id)) {
+                    if (preg_match($regex, $id) === 1) {
                         $alias->setPublic(true);
                     }
                 }
@@ -50,9 +51,7 @@ final class SetonoGlsWebserviceBundleTest extends KernelTestCase
         return $kernel;
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_inits(): void
     {
         self::bootKernel();
@@ -76,7 +75,7 @@ final class SetonoGlsWebserviceBundleTest extends KernelTestCase
                 'Service %s was not an instance of %s, but an instance of %s',
                 $service['id'],
                 $service['class'],
-                get_class($obj)
+                get_class($obj),
             ));
         }
     }
