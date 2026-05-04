@@ -10,29 +10,13 @@ Integrates the [GLS webservice PHP SDK](https://github.com/Setono/gls-webservice
 
 ### Step 1: Download the bundle
 
-Open a command console, enter your project directory and execute the following command to download the latest stable version of this plugin:
-
 ```bash
-$ composer require setono/gls-webservice-bundle
+composer require setono/gls-webservice-bundle
 ```
-
-This command requires you to have Composer installed globally, as explained in the [installation chapter](https://getcomposer.org/doc/00-intro.md) of the Composer documentation.
-
 
 ### Step 2: Enable the bundle
 
-Enable the plugin by adding it to the list of registered plugins/bundles in `config/bundles.php`:
-
-```php
-<?php
-$bundles = [
-    // ...
-    
-    Setono\GlsWebserviceBundle\SetonoGlsWebserviceBundle::class => ['all' => true],
-    
-    // ...
-];
-```
+The bundle will automatically be enabled with Symfony Flex. Otherwise add it to `config/bundles.php` yourself.
 
 ## Usage
 Now you can inject the `ClientInterface` into your service:
