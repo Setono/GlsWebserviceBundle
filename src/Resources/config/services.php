@@ -12,16 +12,20 @@ use Setono\GLS\Webservice\Factory\SoapClientFactoryInterface;
 return static function (ContainerConfigurator $container): void {
     $services = $container->services();
 
-    $services->set('setono_gls_webservice.factory.soap_client', SoapClientFactory::class)
+    $services->set(SoapClientFactory::class)
         ->args([
             param('setono_gls_webservice.wsdl'),
             param('setono_gls_webservice.options'),
         ]);
 
-    $services->alias(SoapClientFactoryInterface::class, 'setono_gls_webservice.factory.soap_client');
+    $services->alias(SoapClientFactoryInterface::class, SoapClientFactory::class);
+    $services->alias('setono_gls_webservice.factory.soap_client', SoapClientFactoryInterface::class)
+        ->deprecate('setono/gls-webservice-bundle', '1.4', 'The "%alias_id%" service alias is deprecated. Use "' . SoapClientFactoryInterface::class . '" instead.');
 
-    $services->set('setono_gls_webservice.client', Client::class)
-        ->args([service('setono_gls_webservice.factory.soap_client')]);
+    $services->set(Client::class)
+        ->args([service(SoapClientFactory::class)]);
 
-    $services->alias(ClientInterface::class, 'setono_gls_webservice.client');
+    $services->alias(ClientInterface::class, Client::class);
+    $services->alias('setono_gls_webservice.client', ClientInterface::class)
+        ->deprecate('setono/gls-webservice-bundle', '1.4', 'The "%alias_id%" service alias is deprecated. Use "' . ClientInterface::class . '" instead.');
 };

@@ -44,28 +44,27 @@ use Setono\GLS\Webservice\Client\ClientInterface;
 
 final class YourService
 {
-    private $client;
-    
-    public function __construct(ClientInterface $client)
+    public function __construct(private readonly ClientInterface $client)
     {
-        $this->client = $client;
     }
 }
 ```
 
-With auto wiring this will work out of the box. If you're not using auto wiring you have to inject it in your service definition:
+With autowiring this will work out of the box. If you're not using autowiring you have to inject it in your service definition:
 
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
+```php
+<?php
 
-<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <services>
-        <service id="YourService">
-            <argument type="service" id="Setono\GLS\Webservice\Client\ClientInterface"/>
-        </service>
-    </services>
-</container>
+use Setono\GLS\Webservice\Client\ClientInterface;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
+
+return static function (ContainerConfigurator $container): void {
+    $container->services()
+        ->set(YourService::class)
+        ->args([service(ClientInterface::class)]);
+};
 ```
 
 [ico-version]: https://poser.pugx.org/setono/gls-webservice-bundle/v/stable
