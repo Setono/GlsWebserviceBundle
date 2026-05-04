@@ -21,9 +21,7 @@
         "matthiasnoback/symfony-dependency-injection-test": "^6.3",
         "nyholm/symfony-bundle-test": "^3.1",
         "phpstan/phpstan-symfony": "^2.0",
-        "phpunit/phpunit": "^11.5",
-        "setono/code-quality-pack": "^3.4",
-        "shipmonk/composer-dependency-analyser": "^1.8"
+        "setono/code-quality-pack": "^3.4"
     },
     "prefer-stable": true,
     "autoload": {
